@@ -3,7 +3,6 @@ package com.practice.mysqlproj.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practice.mysqlproj.entites.Student;
 import com.practice.mysqlproj.entites.Subject;
 import com.practice.mysqlproj.exception.SubjectNotFoundException;
-import com.practice.mysqlproj.services.NumberService;
 import com.practice.mysqlproj.services.SubjectService;
 
 @RestController
@@ -26,10 +24,6 @@ public class SubjectController {
 
     @Autowired
     private SubjectService subjectService;
-
-    @Autowired
-    private NumberService numberService;
-
 
     @PostMapping
     public ResponseEntity<Subject> createSubject(@RequestBody Subject subject) {
@@ -66,12 +60,6 @@ public class SubjectController {
         String message = "Successfully deleted subject with ID: " + String.valueOf(subjectId);
         subjectService.deleteSubject(subjectId);
         return ResponseEntity.ok().body(message);
-    }
-
-    @GetMapping("/hidden-feature/{number}")
-    public ResponseEntity<String> getNumberFact(@PathVariable int number) {
-        String fact = numberService.getNumberFact(number);
-        return new ResponseEntity<>(fact, HttpStatus.OK);
     }
 
 }

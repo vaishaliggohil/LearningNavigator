@@ -3,7 +3,6 @@ package com.practice.mysqlproj.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,6 @@ import com.practice.mysqlproj.entites.Student;
 import com.practice.mysqlproj.exception.ExamNotFoundException;
 import com.practice.mysqlproj.exception.StudentNotFoundException;
 import com.practice.mysqlproj.exception.SubjectNotFoundException;
-import com.practice.mysqlproj.services.NumberService;
 import com.practice.mysqlproj.services.StudentService;
 
 @RestController
@@ -27,9 +25,6 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
-
-     @Autowired
-    private NumberService numberService;
 
     @PostMapping
     public ResponseEntity<Student> registerStudent(@RequestBody Student registerStudent) throws StudentNotFoundException {
@@ -77,9 +72,4 @@ public class StudentController {
         return ResponseEntity.ok().body(message);
     }
 
-    @GetMapping("/hidden-feature/{number}")
-    public ResponseEntity<String> getNumberFact(@PathVariable int number) {
-        String fact = numberService.getNumberFact(number);
-        return new ResponseEntity<>(fact, HttpStatus.OK);
-    }
 }

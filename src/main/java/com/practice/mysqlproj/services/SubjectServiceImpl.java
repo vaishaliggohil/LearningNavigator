@@ -3,12 +3,14 @@ package com.practice.mysqlproj.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.practice.mysqlproj.entites.Student;
 import com.practice.mysqlproj.entites.Subject;
 import com.practice.mysqlproj.exception.SubjectNotFoundException;
 import com.practice.mysqlproj.repositories.SubjectRepository;
 
+@Service
 public class SubjectServiceImpl implements SubjectService{
 
 

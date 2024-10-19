@@ -20,7 +20,6 @@ import com.practice.mysqlproj.exception.SubjectNotFoundException;
 import com.practice.mysqlproj.services.ExamService;
 import com.practice.mysqlproj.services.NumberService;
 
-
 @RestController
 @RequestMapping("/exams")
 public class ExamController {
@@ -30,6 +29,11 @@ public class ExamController {
 
     @Autowired
     private NumberService numberService;
+
+    @Autowired
+    public ExamController(NumberService numberService) {
+        this.numberService = numberService;
+    }
 
      @PostMapping
     public ResponseEntity<Exam> createExam(@RequestBody Exam exam) throws SubjectNotFoundException {

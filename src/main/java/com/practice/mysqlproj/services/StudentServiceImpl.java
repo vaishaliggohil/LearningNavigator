@@ -3,6 +3,7 @@ package com.practice.mysqlproj.services;
 import java.util.Optional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.practice.mysqlproj.entites.Exam;
 import com.practice.mysqlproj.entites.Student;
@@ -14,7 +15,8 @@ import com.practice.mysqlproj.repositories.ExamRepository;
 import com.practice.mysqlproj.repositories.StudentRepository;
 import com.practice.mysqlproj.repositories.SubjectRepository;
 
-public class StudentServiceImpl implements StudentService{
+@Service
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;

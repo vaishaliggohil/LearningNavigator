@@ -8,5 +8,5 @@ import com.practice.mysqlproj.entites.Exam;
 
 public interface ExamRepository extends JpaRepository<Exam, Long> {
 
-    List<Exam> findBySubject_SubjectId(Long subjectId);
+    List<Exam> findBySubject_Id(Long subjectId);
 }
